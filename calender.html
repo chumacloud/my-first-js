@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FullCalendar Example</title>
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/main.min.css' rel='stylesheet' />
+</head>
+
+<body>
+    <div id='calendar'></div>
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.13/index.global.min.js'></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var calendarEl = document.getElementById('calendar');
+
+            // Create a new Calendar instance
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                // REQUIRED: Set the initial view (e.g., month grid)
+                initialView: 'dayGridMonth',
+
+                // OPTIONAL: Add an event to see it on the calendar
+                events: [
+                    {
+                        title: 'All-day event',
+                        start: '2025-11-10' // Note: Replace with a relevant date for testing
+                    },
+                    {
+                        title: 'Long Meeting',
+                        start: '2025-11-12T10:00:00',
+                        end: '2025-11-12T14:00:00'
+                    }
+                ],
+
+                // OPTIONAL: Add buttons for navigation
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                }
+            });
+
+            // Render the calendar to the container
+            calendar.render();
+        });
+    </script>
+</body>
+
+</html>
